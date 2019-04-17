@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import services.spotifyService.authenticator.SpotifyAuth;
 
 public class Main extends Application {
 
@@ -12,6 +13,10 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+
+        //Authenticate Spotify
+        System.out.println("Authenticating Spotify...");
+        SpotifyAuth.authenticate();
     }
 
     public static void main(String[] args) {

@@ -6,13 +6,13 @@ import services.spotifyService.models.Artist;
 import services.spotifyService.models.Track;
 
 public final class SearchResult {
-    @SerializedName("album")
+    @SerializedName("albums")
     protected PagingObject<Album> _album;
 
-    @SerializedName("artist")
+    @SerializedName("artists")
     protected PagingObject<Artist> _artist;
 
-    @SerializedName("track")
+    @SerializedName("tracks")
     protected PagingObject<Track> _track;
 
     public PagingObject<Album> album() {

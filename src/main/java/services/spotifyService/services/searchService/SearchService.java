@@ -1,10 +1,20 @@
 package services.spotifyService.services.searchService;
 
+import com.google.gson.Gson;
 import services.spotifyService.models.Album;
 import services.spotifyService.models.Artist;
 import services.spotifyService.models.Track;
+import services.spotifyService.models.search.PagingObject;
+import services.spotifyService.models.search.SearchResult;
+import services.spotifyService.requestHelper.RequestHelper;
+
+import java.util.*;
 
 public class SearchService implements ISearchService {
+
+    private RequestHelper requestHelper = new RequestHelper();
+    private Gson jsonParser = new Gson();
+
     /**
      * Search for artist
      *
@@ -13,7 +23,17 @@ public class SearchService implements ISearchService {
      */
     @Override
     public Artist[] searchArtist(String searchTerm) {
-        return new Artist[0];
+
+        Map<String, Object> params = new HashMap();
+        params.put("q", searchTerm);
+        params.put("type", "artist");
+
+        String queryString = requestHelper.urlEncodeUTF8(params);
+        String responseString = requestHelper.requestGet("https://api.spotify.com/v1/search?" + queryString);
+        SearchResult result = jsonParser.fromJson(responseString, SearchResult.class);
+        PagingObject<Artist> artistResult = result.artist();
+
+        return artistResult.items();
     }
 
     /**
@@ -24,7 +44,17 @@ public class SearchService implements ISearchService {
      */
     @Override
     public Album[] searchAlbum(String searchTerm) {
-        return new Album[0];
+
+        Map<String, Object> params = new HashMap();
+        params.put("q", searchTerm);
+        params.put("type", "album");
+
+        String queryString = requestHelper.urlEncodeUTF8(params);
+        String responseString = requestHelper.requestGet("https://api.spotify.com/v1/search?" + queryString);
+        SearchResult result = jsonParser.fromJson(responseString, SearchResult.class);
+        PagingObject<Album> albumResult = result.album();
+
+        return albumResult.items();
     }
 
     /**
@@ -35,6 +65,15 @@ public class SearchService implements ISearchService {
      */
     @Override
     public Track[] searchTrack(String searchTerm) {
-        return new Track[0];
+        Map<String, Object> params = new HashMap();
+        params.put("q", searchTerm);
+        params.put("type", "track");
+
+        String queryString = requestHelper.urlEncodeUTF8(params);
+        String responseString = requestHelper.requestGet("https://api.spotify.com/v1/search?" + queryString);
+        SearchResult result = jsonParser.fromJson(responseString, SearchResult.class);
+        PagingObject<Track> trackResult = result.track();
+
+        return trackResult.items();
     }
 }

@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import services.spotifyService.authenticator.SpotifyAuth;
+import services.spotifyService.models.Artist;
 import services.spotifyService.models.Track;
+import services.spotifyService.services.searchService.SearchService;
 import services.spotifyService.services.trackService.TrackService;
 
 import java.net.URL;
@@ -31,9 +33,14 @@ public class mainPageController implements Initializable {
 
     @FXML
     private void testButtonClicked(ActionEvent e) {
-        SpotifyAuth.authenticate();
-        TrackService ts = new TrackService();
-        Track track = ts.getTrackById("3NxuezMdSLgt4OwHzBoUhL");
-        track.printObject();
+        if (!SpotifyAuth.isAuthenticated()) {
+            System.out.println("Spotify not authenticated, reauth...");
+            SpotifyAuth.authenticate();
+        }
+        SearchService ss = new SearchService();
+        Track[] tracks = ss.searchTrack("butterfly");
+        for (Track track : tracks) {
+            track.printObject();
+        }
     }
 }
