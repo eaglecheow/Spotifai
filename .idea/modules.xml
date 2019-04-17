@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Spotifai.iml" filepath="$PROJECT_DIR$/Spotifai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spotifai.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spotifai.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spotifai.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Spotifai.test.iml" />
     </modules>
   </component>
 </project>
