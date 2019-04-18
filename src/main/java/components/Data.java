@@ -2,10 +2,12 @@ package components;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import services.browserService.BrowserService;
 import services.spotifyService.models.Artist;
 import services.spotifyService.models.Track;
 
@@ -14,13 +16,18 @@ import java.io.IOException;
 public class Data {
     @FXML
     private HBox hBox;
+
     @FXML
     private Label artistName;
+
     @FXML
     private Label trackName;
 
     @FXML
     private ImageView coverImage;
+
+    @FXML
+    private Button previewButton;
 
     public Data()
     {
@@ -48,6 +55,9 @@ public class Data {
         }
         artistName.setText(artistNameList.toString());
         trackName.setText(trackItem.name());
+        previewButton.setOnAction(event -> {
+            BrowserService.openUrl(trackItem.previewUrl());
+        });
 
         String url = trackItem.album().images()[0].url();
         Image image = new Image(url);
