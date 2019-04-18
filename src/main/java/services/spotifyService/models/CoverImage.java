@@ -2,7 +2,7 @@ package services.spotifyService.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public final class Image extends BaseObject {
+public final class CoverImage extends BaseObject {
     @SerializedName("height")
     protected int _height;
 

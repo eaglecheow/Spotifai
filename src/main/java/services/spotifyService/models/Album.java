@@ -19,7 +19,7 @@ public final class Album extends BaseObject {
     protected String _id;
 
     @SerializedName("images")
-    protected Image[] _images;
+    protected CoverImage[] _coverImages;
 
     @SerializedName("label")
     protected String _label;
@@ -62,8 +62,8 @@ public final class Album extends BaseObject {
         return this._id;
     }
 
-    public Image[] images() {
-        return this._images;
+    public CoverImage[] images() {
+        return this._coverImages;
     }
 
     public String _label() {
