@@ -7,11 +7,38 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.mainPageController"
-            prefHeight="400.0" prefWidth="600.0">
-    <children>
-        <Button id="testButton" text="Click Me!" fx:id="testButton" onAction="#testButtonClicked"/>
-    </children>
-</AnchorPane>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.spotifai.controllers.mainPageController"
+          prefHeight="1000.0" prefWidth="1200.0">
+    <rowConstraints>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints fillHeight="true"/>
+        <RowConstraints minHeight="15" />
+    </rowConstraints>
+    <HBox spacing="10" GridPane.rowIndex="0">
+        <padding>
+            <Insets top="10" left="10" right="10" bottom="10"/>
+        </padding>
+        <TextField fx:id="searchTextField"/>
+        <Button fx:id="searchButton" text="Search Track" onAction="#onSearchButtonClicked"/>
+    </HBox>
+    <VBox fillWidth="true" spacing="10" GridPane.rowIndex="1">
+        <padding>
+            <Insets top="10" left="10" right="10" bottom="10"/>
+        </padding>
+        <Text text="Search Results here"/>
+        <ListView fx:id="searchResult" prefHeight="1000" prefWidth="10000"/>
+    </VBox>
+    <Label GridPane.rowIndex="2" text="Powered by Spotify">
+        <padding>
+            <Insets bottom="5" left="10" />
+        </padding>
+        <font>
+            <Font size="10" />
+        </font>
+    </Label>
+</GridPane>
