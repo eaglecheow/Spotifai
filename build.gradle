@@ -19,7 +19,7 @@ repositories {
 dependencies{
     // this dependency is only required when using UserJvmOptionsService
     // when using Oracle JDK
-//     compile files("${System.properties['java.home']}/../lib/packager.jar")
+     compile files("${System.properties['java.home']}/../lib/packager.jar")
     // when using OpenJFX (Ubuntu), please adjust accordingly
     // compile files("/usr/share/java/openjfx/lib/packager.jar")
     implementation 'com.google.code.gson:gson:2.8.5'
@@ -35,7 +35,7 @@ apply plugin: 'javafx-gradle-plugin'
 // for all available settings please look at the class "JavaFXGradlePluginExtension"
 jfx {
     verbose = true
-    mainClass = "com.something.cool.MainApp"
+    mainClass = "com.spotifai.Main"
     jfxAppOutputDir = "build/jfx/app"
     jfxMainAppJarName = "project-jfx.jar"
     deployDir = "src/main/deploy"

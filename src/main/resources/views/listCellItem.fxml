@@ -1,4 +1,4 @@
-<?import components.Data?>
+<?import com.spotifai.components.customListView.Data?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 
@@ -26,10 +26,20 @@
                         <Font name="System Bold" size="16"/>
                     </font>
                 </Label>
-                <Label fx:id="artistName" GridPane.rowIndex="1"/>
+                <VBox spacing="1" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets top="2" />
+                    </padding>
+                    <Label fx:id="albumName">
+                        <font>
+                            <Font name="System Bold" />
+                        </font>
+                    </Label>
+                    <Label fx:id="artistName" />
+                </VBox>
                 <VBox GridPane.rowIndex="2">
                     <padding>
-                        <Insets top="20" />
+                        <Insets top="15" />
                     </padding>
                     <Button text="Preview" fx:id="previewButton" />
                 </VBox>
