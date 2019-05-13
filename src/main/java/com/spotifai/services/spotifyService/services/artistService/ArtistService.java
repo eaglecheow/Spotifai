@@ -9,6 +9,12 @@ public class ArtistService implements IArtistService {
     private RequestHelper requestHelper = new RequestHelper();
     private Gson jsonParser = new Gson();
 
+    /**
+     * Gets artist object from Artist ID
+     *
+     * @param id Artist ID
+     * @return Artist object
+     */
     @Override
     public Artist getArtistById(String id) {
         String responseString = requestHelper.requestGet("https://api.spotify.com/v1/artists/" + id);

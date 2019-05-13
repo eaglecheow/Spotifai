@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/views/mainPage.fxml"));
         primaryStage.setTitle("Spotifai Alpha");
-        primaryStage.setScene(new Scene(root, 1000, 500));
+        primaryStage.setScene(new Scene(root, 600, 800));
         primaryStage.show();
 
         //Authenticate Spotify

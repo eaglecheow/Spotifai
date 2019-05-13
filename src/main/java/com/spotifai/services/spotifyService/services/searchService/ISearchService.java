@@ -7,6 +7,7 @@ import com.spotifai.services.spotifyService.models.Track;
 public interface ISearchService {
     /**
      * Search for artist
+     *
      * @param searchTerm Keyword for search
      * @return An array of Artist object
      */
@@ -14,6 +15,7 @@ public interface ISearchService {
 
     /**
      * Search for album
+     *
      * @param searchTerm Keyword for search
      * @return An array of Album object
      */
@@ -21,6 +23,7 @@ public interface ISearchService {
 
     /**
      * Search for track
+     *
      * @param searchTerm Keyword for search
      * @return An array of Track object
      */

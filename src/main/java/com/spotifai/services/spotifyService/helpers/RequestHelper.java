@@ -34,6 +34,12 @@ public class RequestHelper implements IRequestHelper {
         return sb.toString();
     }
 
+    /**
+     * Sends a GET request to a URL
+     *
+     * @param url Request URL
+     * @return Response body in string
+     */
     @Override
     public String requestGet(String url) {
 
@@ -52,6 +58,14 @@ public class RequestHelper implements IRequestHelper {
         }
     }
 
+    /**
+     * Sends a POST request to a URL
+     *
+     * @param postObject Object as request body
+     * @param url        Request URL
+     * @param <T>        Post object type
+     * @return Response body in string
+     */
     @Override
     public <T> String requestPost(T postObject, String url) {
         try {
@@ -79,6 +93,7 @@ public class RequestHelper implements IRequestHelper {
         }
     }
 
+
     private String getString(HttpURLConnection connection, BufferedReader in) throws IOException {
         String inputLine;
         StringBuffer content = new StringBuffer();
@@ -92,11 +107,24 @@ public class RequestHelper implements IRequestHelper {
         return contentJson;
     }
 
+    /**
+     * Sends an UPDATE request to a URL
+     *
+     * @param updateObject Object as request body
+     * @param url          Request URL
+     * @param <T>          Update object type
+     * @return Response body in string
+     */
     @Override
     public <T> String requestUpdate(T updateObject, String url) {
         return null;
     }
 
+    /**
+     * Sends a DELETE request to a URL
+     *
+     * @param url Request URL
+     */
     @Override
     public void requestDelete(String url) {
 

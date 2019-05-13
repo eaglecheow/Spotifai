@@ -9,6 +9,12 @@ public class TrackService implements ITrackService {
     private RequestHelper requestHelper = new RequestHelper();
     private Gson jsonParser = new Gson();
 
+    /**
+     * Gets track from track ID
+     *
+     * @param id Track Id
+     * @return Track object
+     */
     @Override
     public Track getTrackById(String id) {
 

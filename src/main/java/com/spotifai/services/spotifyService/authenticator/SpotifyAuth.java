@@ -32,6 +32,9 @@ public class SpotifyAuth {
         }
     }
 
+    /**
+     * Starts the authentication process with Spotify. Must be executed upon initialization.
+     */
     public static void authenticate() {
         try {
             URL tokenUrl = new URL("https://accounts.spotify.com/api/token");

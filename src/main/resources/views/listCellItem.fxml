@@ -9,6 +9,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.image.Image?>
 <HBox xmlns:fx="http://javafx.com/fxml" fx:id="hBox" spacing="2">
     <children>
         <ImageView fx:id="coverImage" fitWidth="100" fitHeight="100"/>
@@ -28,20 +29,50 @@
                 </Label>
                 <VBox spacing="1" GridPane.rowIndex="1">
                     <padding>
-                        <Insets top="2" />
+                        <Insets top="2"/>
                     </padding>
                     <Label fx:id="albumName">
                         <font>
-                            <Font name="System Bold" />
+                            <Font name="System Bold"/>
                         </font>
                     </Label>
-                    <Label fx:id="artistName" />
+                    <Label fx:id="artistName"/>
                 </VBox>
                 <VBox GridPane.rowIndex="2">
                     <padding>
-                        <Insets top="15" />
+                        <Insets top="10"/>
                     </padding>
-                    <Button text="Preview" fx:id="previewButton" />
+                    <HBox spacing="5">
+                        <Button fx:id="previewButton">
+                            <graphic>
+                                <HBox spacing="2">
+                                    <children>
+                                        <ImageView>
+                                            <image>
+                                                <Image url="/images/play.png" requestedHeight="20" requestedWidth="20"/>
+                                            </image>
+                                        </ImageView>
+                                        <Label text="Preview" textFill="black"/>
+                                    </children>
+                                </HBox>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="playOnSpotifyButton">
+                            <graphic>
+                                <HBox spacing="2">
+                                    <children>
+                                        <ImageView>
+                                            <image>
+                                                <Image url="/images/spotify-2.png" requestedHeight="20"
+                                                       requestedWidth="20"/>
+                                            </image>
+                                        </ImageView>
+                                        <Label text="Lookup on Spotify" textFill="black"/>
+                                    </children>
+                                </HBox>
+                            </graphic>
+                        </Button>
+                    </HBox>
                 </VBox>
             </GridPane>
         </VBox>

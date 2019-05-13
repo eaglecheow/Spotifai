@@ -32,6 +32,9 @@ public class Data {
     @FXML
     private Button previewButton;
 
+    @FXML
+    private Button playOnSpotifyButton;
+
     public Data()
     {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/listCellItem.fxml"));
@@ -62,6 +65,9 @@ public class Data {
         albumName.setText(trackItem.album().name());
         previewButton.setOnAction(event -> {
             BrowserService.openUrl(trackItem.previewUrl());
+        });
+        playOnSpotifyButton.setOnAction(event -> {
+            BrowserService.openUrl("http://open.spotify.com/track/" + trackItem.id());
         });
 
         Image image = trackItemWithImage.image();
